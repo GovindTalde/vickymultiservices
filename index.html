@@ -1,367 +1,414 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <style>
-            *
-            {
-                margin:0;
-                padding: 0;
-                font-family: consolas;
-                box-sizing: border-box;
-            }
-            div.fixed {
-    position: fixed;
-    bottom: 40%;
-    right: 0;
-    z-index: +1;
-    padding: 0%;
-    margin: 0%;
-  }
-            p {
-                font-size: 18px;
-            }
-            body {
-                background: #000000;
-                color: cyan;
-            }
-            div {
-                border-radius: 10px;
-                margin-right: 15px;
-                margin-left: 15px;
-                margin-bottom: 15px;
-            }
-            .title{
-                font-size: 46px;
-                color: aqua;
-                font-weight: bold;
-                text-shadow: 0 0 5px cyan,
-                            0 0 25px cyan,
-                            0 0 50px cyan,
-                            0 0 200px cyan;
-            }
-            .a{
-                position: relative;
-                display: inline-block;
-                color: cyan;
-                font-size: 24px;
-                text-decoration: none;
-                text-transform: uppercase;
-                overflow: hidden;
-                transition: 2s;
 
-            }
-            .a:hover{
-                background-color: cyan;
-                box-shadow: 0 0 5px cyan,
-                            0 0 25px cyan,
-                            0 0 50px cyan;
-            }
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: consolas;
+            box-sizing: border-box;
+        }
 
-            img{
-                width: 50px;
-                height: 50px;
-            }
-            .left
-  {
-    position: absolute;
-    left:30px;top:15px;
-  }
-  .right
-  {
-    position: absolute;
-    right:30px;top:15px;
-  }
-  .subtitle{
+        div.fixed {
+            position: fixed;
+            bottom: 40%;
+            right: 0;
+            z-index: +1;
+            padding: 0%;
+            margin: 0%;
+        }
+
+        p {
+            font-size: 18px;
+        }
+
+        body {
+            background: #000000;
+            color: cyan;
+        }
+
+        div {
+            border-radius: 10px;
+            margin-right: 15px;
+            margin-left: 15px;
+            margin-bottom: 15px;
+        }
+
+        .title {
+            font-family: sans-serif;
+            z-index: 5;
+            -webkit-text-stroke: 2px rgb(0, 0, 0);
+            font-weight: bolder;
+            font-size: 46px;
+            color: cyan;
+        }
+
+        .a {
+            position: relative;
+            display: inline-block;
+            color: cyan;
+            font-size: 24px;
+            text-decoration: none;
+            text-transform: uppercase;
+            overflow: hidden;
+            transition: 2s;
+
+        }
+
+        .a:hover {
+            background-color: cyan;
+            box-shadow: 0 0 5px cyan,
+                0 0 25px cyan,
+                0 0 50px cyan;
+        }
+
+        img {
+            width: 50px;
+            height: 50px;
+        }
+
+        .left {
+            position: absolute;
+            left: 30px;
+            top: 15px;
+        }
+
+        .right {
+            position: absolute;
+            right: 30px;
+            top: 15px;
+        }
+
+        .subtitle {
             color: #73ff00;
             text-align: center;
             font-size: 36px;
             position: relative;
-            }
-            .subtitle::before{
-                box-shadow: 0 0 5px #73ff00,
-                            0 0 25px #73ff00,
-                            0 0 50px #73ff00;
-                content: "";
-                display: block;
-                width: 30vw;
-                height: 2px;
-                background: #73ff00;
-                position: absolute;
-                left: 0;
-                top: 50%;
-                z-index: -2;
-            }
-            .subtitle::after{
-                box-shadow: 0 0 5px #73ff00,
-                            0 0 25px #73ff00,
-                            0 0 50px #73ff00;
-                content: "";
-                display: block;
-                width: 30vw;
-                height: 2px;
-                background: #73ff00;
-                position: absolute;
-                right: 0;
-                top: 50%;
-                z-index: -2;
-            }
-            .contact{
+        }
+
+        .subtitle::before {
+            box-shadow: 0 0 5px #73ff00,
+                0 0 25px #73ff00,
+                0 0 50px #73ff00;
+            content: "";
+            display: block;
+            width: 30vw;
+            height: 2px;
+            background: #73ff00;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            z-index: -2;
+        }
+
+        .subtitle::after {
+            box-shadow: 0 0 5px #73ff00,
+                0 0 25px #73ff00,
+                0 0 50px #73ff00;
+            content: "";
+            display: block;
+            width: 30vw;
+            height: 2px;
+            background: #73ff00;
+            position: absolute;
+            right: 0;
+            top: 50%;
+            z-index: -2;
+        }
+
+        .contact {
             color: #73ff00;
             text-align: center;
             font-size: 36px;
             position: relative;
-            }
-            .contact::before{
-                box-shadow: 0 0 5px #73ff00,
-                            0 0 25px #73ff00,
-                            0 0 50px #73ff00;
-                content: "";
-                display: block;
-                width: 26vw;
-                height: 2px;
-                background: #73ff00;
-                position: absolute;
-                left: 0;
-                top: 50%;
-                z-index: -2;
-            }
-            .contact::after{
-                box-shadow: 0 0 5px #73ff00,
-                            0 0 25px #73ff00,
-                            0 0 50px #73ff00;
-                content: "";
-                display: block;
-                width: 25vw;
-                height: 2px;
-                background: #73ff00;
-                position: absolute;
-                right: 0;
-                top: 50%;
-                z-index: -2;
-            }
-            .line {
-                box-shadow: 0 0 5px #73ff00,
-                            0 0 25px #73ff00,
-                            0 0 50px #73ff00;
-                content: "";
-                display: block;
-                width: 90%;
-                height: 4px;
-                background: #73ff00;
-                position: absolute;
-                
-            }
-            .submenu{
-                padding-left: 10px;
-                font-size: 26px;
-                color: rgb(255, 251, 0);
-            }
-            ul {
-  list-style: none;
-}
-            ul li::before {
-  content: "\2714";
-  color: cyan;
-  font-weight: bold;
-  display: inline-block; 
-  width: 1em;
-  margin-left: 1em;
-}
+        }
 
-        </style>
-    </head>
-    <body>
-        <div class="fixed"><a href=”tel:+917262978178″;><img src="callnow.png" style="width: 60px; height: 60px;">
+        .contact::before {
+            box-shadow: 0 0 5px #73ff00,
+                0 0 25px #73ff00,
+                0 0 50px #73ff00;
+            content: "";
+            display: block;
+            width: 26vw;
+            height: 2px;
+            background: #73ff00;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            z-index: -2;
+        }
+
+        .contact::after {
+            box-shadow: 0 0 5px #73ff00,
+                0 0 25px #73ff00,
+                0 0 50px #73ff00;
+            content: "";
+            display: block;
+            width: 25vw;
+            height: 2px;
+            background: #73ff00;
+            position: absolute;
+            right: 0;
+            top: 50%;
+            z-index: -2;
+        }
+
+        .line {
+            box-shadow: 0 0 5px #73ff00,
+                0 0 25px #73ff00,
+                0 0 50px #73ff00;
+            content: "";
+            display: block;
+            width: 90%;
+            height: 4px;
+            background: #73ff00;
+            position: absolute;
+
+        }
+
+        .submenu {
+            padding-left: 10px;
+            font-size: 26px;
+            color: rgb(255, 251, 0);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        ul li::before {
+            content: "\2714";
+            color: cyan;
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: 1em;
+        }
+
+        .back {
+            border-radius: 0%;
+            margin: 0%;
+            background-image: url("desk.jpeg");
+            background-size: cover;
+            background-position: center center;
+        }
+        .last {
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="fixed"><a href=”tel:+917262978178″;><img src="callnow.png" style="width: 60px; height: 60px;">
         </a></div>
-        <center>
-        <div><div class="left">
-            <img src="logo2.png" style="width: 50px; height: 50px;"></div>
-            <div class="right">
-                <img src="logo2.png" style="width: 50px; height: 50px;"></div>
-            welcome to
+    <center>
+        <div class="back">
+           <p class="last"> welcome to</p>
             <p class="title">Vicky Multiservices & Travels</p><br>
         </div>
+        <br>
         <div class="line"></div><br><br>
         <p style="color: aqua; font-size: 32px; text-decoration: underline"> Quick Access</p><br>
-       <a href="#services" class="a"> <canvas id="Canvas1" width="150px" height="150px" style="margin: 5px 5px; border-radius: 15px; border: 1px solid rgb(115, 255, 0); background-color: rgb(0, 0, 0);"></canvas></a>
+        <a href="#services" class="a"> <canvas id="Canvas1" width="150px" height="150px"
+                style="margin: 5px 5px; border-radius: 15px; border: 1px solid rgb(115, 255, 0); background-color: rgb(0, 0, 0);"></canvas></a>
 
-       <a href="#contact" class="a"> <canvas id="Canvas2" width="150px" height="150px" style="margin: 5px 5px; border-radius: 15px; border: 1px solid rgb(115, 255, 0); background-color: rgb(0, 0, 0);"></canvas></a><br>
+        <a href="#contact" class="a"> <canvas id="Canvas2" width="150px" height="150px"
+                style="margin: 5px 5px; border-radius: 15px; border: 1px solid rgb(115, 255, 0); background-color: rgb(0, 0, 0);"></canvas></a><br>
 
-       <a href="#about" class="a"> <canvas id="Canvas4" width="150px" height="150px" style="margin: 5px 5px; border-radius: 15px; border: 1px solid rgb(115, 255, 0); background-color: rgb(0, 0, 0);"></canvas></a>
+        <a href="#about" class="a"> <canvas id="Canvas4" width="150px" height="150px"
+                style="margin: 5px 5px; border-radius: 15px; border: 1px solid rgb(115, 255, 0); background-color: rgb(0, 0, 0);"></canvas></a>
 
-       <a href="#goal" class="a"> <canvas id="Canvas3" width="150px" height="150px" style="margin: 5px 5px; border-radius: 15px; border: 1px solid rgb(115, 255, 0); background-color: rgb(0, 0, 0);"></canvas></a></center>
-       <br><div class="line" id="services"></div><br>
-       <p class="subtitle"> Services</p>
-       <p class="submenu">Web Devolopment:-</p>
-        <ul>
-            <li>Bussness wesites</li>
-            <li>Personal website</li>
-            <li>Marketing</li>
-            <li>Web applications</li>
-        </ul>
-        <p class="submenu">Pan Card:-</p>
-        <ul>
-            <li>Adhar card xerox</li>
-            <li>Two passport size photo</li>
-            <li>Scanned Signature</li>
-            <li>Service charge:- Two hundred</li>
-        </ul>       <p class="submenu">Web Devolopment:-</p>
-        <ul>
-            <li>Bussness wesites</li>
-            <li>Personal website</li>
-            <li>Marketing</li>
-            <li>Web applications</li>
-        </ul>
-        <p class="submenu">Pan Card:-</p>
-        <ul>
-            <li>Adhar card xerox</li>
-            <li>Two passport size photo</li>
-            <li>Scanned Signature</li>
-            <li>Service charge:- Two hundred</li>
-        </ul>       <p class="submenu">Web Devolopment:-</p>
-        <ul>
-            <li>Bussness wesites</li>
-            <li>Personal website</li>
-            <li>Marketing</li>
-            <li>Web applications</li>
-        </ul>
-        <p class="submenu">Pan Card:-</p>
-        <ul>
-            <li>Adhar card xerox</li>
-            <li>Two passport size photo</li>
-            <li>Scanned Signature</li>
-            <li>Service charge:- Two hundred</li>
-        </ul>       <p class="submenu">Web Devolopment:-</p>
-        <ul>
-            <li>Bussness wesites</li>
-            <li>Personal website</li>
-            <li>Marketing</li>
-            <li>Web applications</li>
-        </ul>
-        <p class="submenu">Pan Card:-</p>
-        <ul>
-            <li>Adhar card xerox</li>
-            <li>Two passport size photo</li>
-            <li>Scanned Signature</li>
-            <li>Service charge:- Two hundred</li>
-        </ul>       <p class="submenu">Web Devolopment:-</p>
-        <ul>
-            <li>Bussness wesites</li>
-            <li>Personal website</li>
-            <li>Marketing</li>
-            <li>Web applications</li>
-        </ul>
-        <p class="submenu">Pan Card:-</p>
-        <ul>
-            <li>Adhar card xerox</li>
-            <li>Two passport size photo</li>
-            <li>Scanned Signature</li>
-            <li>Service charge:- Two hundred</li>
-        </ul>
+        <a href="#goal" class="a"> <canvas id="Canvas3" width="150px" height="150px"
+                style="margin: 5px 5px; border-radius: 15px; border: 1px solid rgb(115, 255, 0); background-color: rgb(0, 0, 0);"></canvas></a>
+    </center>
+    <br>
+    <div class="line" id="services"></div><br>
+    <p class="subtitle"> Services</p>
+    <p class="submenu">Web Devolopment:-</p>
+    <ul>
+        <li>Bussness wesites</li>
+        <li>Personal website</li>
+        <li>Marketing</li>
+        <li>Web applications</li>
+    </ul>
+    <p class="submenu">Pan Card:-</p>
+    <ul>
+        <li>Adhar card xerox</li>
+        <li>Two passport size photo</li>
+        <li>Scanned Signature</li>
+        <li>Service charge:- Two hundred</li>
+    </ul>
+    <p class="submenu">Web Devolopment:-</p>
+    <ul>
+        <li>Bussness wesites</li>
+        <li>Personal website</li>
+        <li>Marketing</li>
+        <li>Web applications</li>
+    </ul>
+    <p class="submenu">Pan Card:-</p>
+    <ul>
+        <li>Adhar card xerox</li>
+        <li>Two passport size photo</li>
+        <li>Scanned Signature</li>
+        <li>Service charge:- Two hundred</li>
+    </ul>
+    <p class="submenu">Web Devolopment:-</p>
+    <ul>
+        <li>Bussness wesites</li>
+        <li>Personal website</li>
+        <li>Marketing</li>
+        <li>Web applications</li>
+    </ul>
+    <p class="submenu">Pan Card:-</p>
+    <ul>
+        <li>Adhar card xerox</li>
+        <li>Two passport size photo</li>
+        <li>Scanned Signature</li>
+        <li>Service charge:- Two hundred</li>
+    </ul>
+    <p class="submenu">Web Devolopment:-</p>
+    <ul>
+        <li>Bussness wesites</li>
+        <li>Personal website</li>
+        <li>Marketing</li>
+        <li>Web applications</li>
+    </ul>
+    <p class="submenu">Pan Card:-</p>
+    <ul>
+        <li>Adhar card xerox</li>
+        <li>Two passport size photo</li>
+        <li>Scanned Signature</li>
+        <li>Service charge:- Two hundred</li>
+    </ul>
+    <p class="submenu">Web Devolopment:-</p>
+    <ul>
+        <li>Bussness wesites</li>
+        <li>Personal website</li>
+        <li>Marketing</li>
+        <li>Web applications</li>
+    </ul>
+    <p class="submenu">Pan Card:-</p>
+    <ul>
+        <li>Adhar card xerox</li>
+        <li>Two passport size photo</li>
+        <li>Scanned Signature</li>
+        <li>Service charge:- Two hundred</li>
+    </ul>
 
     <p class="subtitle" id="about"> About us</p>
-    <p style="text-align: center; color: rgb(255, 251, 0); font-size: 22px;">VICKY MULTISERVICES</p> 
-    <p style="padding-left: 10px;">The best multi service provider in Sirsala with the letest updates. Established in 2020 by Dilip Misal and Vicky Dhate, providing 
-        all type of online services on reliable price, in given time period. Also provides ticket booking on clients time with negotible ptice.
-        We pay more attention to the clients requirements and given deadline. We will always provide all type of services in before the given deadline.
+    <p style="text-align: center; color: rgb(255, 251, 0); font-size: 22px;">VICKY MULTISERVICES</p>
+    <p style="padding-left: 10px;">The best multi service provider in Sirsala with the letest updates. Established in
+        2020 by Dilip Misal and Vicky Dhate, providing
+        all type of online services on reliable price, in given time period. Also provides ticket booking on clients
+        time with negotible ptice.
+        We pay more attention to the clients requirements and given deadline. We will always provide all type of
+        services in before the given deadline.
     </p>
 
 
 
-       <p class="contact" id="goal"> Our Goals</p>
-       <p style="text-align: center; color: rgb(255, 251, 0); font-size: 22px;">VICKY MULTISERVICES</p>       
-        <p style="padding-left: 10px;">Our Goal is to make clients happy and get satisfied by our service. Also to increase ease of use of online services. To serve all type of requierd services to 
-            peoples. To become always free for cliets requirements. To provide letest technology and services to all type of clients. </p>
-           
+    <p class="contact" id="goal"> Our Goals</p>
+    <p style="text-align: center; color: rgb(255, 251, 0); font-size: 22px;">VICKY MULTISERVICES</p>
+    <p style="padding-left: 10px;">Our Goal is to make clients happy and get satisfied by our service. Also to increase
+        ease of use of online services. To serve all type of requierd services to
+        peoples. To become always free for cliets requirements. To provide letest technology and services to all type of
+        clients. </p>
 
-           <p class="contact" id="contact"> Contact Us</p>
-           <p style="text-align: center; color: rgb(255, 251, 0); font-size: 22px;">VICKY MULTISERVICES</p>       
-                       <p style="color: cyan; padding-left: 15px;">
-                       Address:- Near BSNL tower pohner road, sirsala 431128<br>
-                       Phone:- 7262978178/ 7267978178/ 9975735537<br>
-                       Email:- cenatown777@gmail.com<br><br>
-                       <center>
-                       <a href="mailto:cenatown777@gmail.com" class="a" style="padding: 10px 10px;"><img src="twitter.png"></a>
-                       <a href="mailto:cenatown777@gmail.com" class="a" style="padding: 10px 10px;"><img src="whatsapp.png"></a>
-                       <a href="https://www.facebook.com/vikas.dhate.5" class="a" style="padding: 10px 10px;"><img src="facebook.png"></a>
-                       <a href="mailto:cenatown777@gmail.com" class="a" style="padding: 10px 10px;"><img src="email.png"></a>
-                       </center>
-               </p>
-               <br> <div class="line"></div><br><br>
 
-           <div style="color: #eeff00;">copyright :- &#169; 2021 Vicky Multiservices all rights reserved.<br>
+    <p class="contact" id="contact"> Contact Us</p>
+    <p style="text-align: center; color: rgb(255, 251, 0); font-size: 22px;">VICKY MULTISERVICES</p>
+    <p style="color: cyan; padding-left: 15px;">
+        Address:- Near BSNL tower pohner road, sirsala 431128<br>
+        Phone:- 7262978178/ 7267978178/ 9975735537<br>
+        Email:- cenatown777@gmail.com<br><br>
+        <center>
+            <a href="mailto:cenatown777@gmail.com" class="a" style="padding: 10px 10px;"><img src="twitter.png"></a>
+            <a href="mailto:cenatown777@gmail.com" class="a" style="padding: 10px 10px;"><img src="whatsapp.png"></a>
+            <a href="https://www.facebook.com/vikas.dhate.5" class="a" style="padding: 10px 10px;"><img
+                    src="facebook.png"></a>
+            <a href="mailto:cenatown777@gmail.com" class="a" style="padding: 10px 10px;"><img src="email.png"></a>
+        </center>
+    </p>
+    <br>
+    <div class="line"></div><br><br>
+
+    <div style="color: #eeff00;">copyright :- &#169; 2021 Vicky Multiservices all rights reserved.<br>
         this site is devoloped by Munna Talde<br>
         Email:-
-        <a href="mailto:cenatown777@gmail.com" style="padding: 10px 10px; font-size: 16px; color: #eeff00;">cenatown777@gmail.com</a></div>
+        <a href="mailto:cenatown777@gmail.com"
+            style="padding: 10px 10px; font-size: 16px; color: #eeff00;">cenatown777@gmail.com</a>
+    </div>
 
-        <script>
-            var canvas1 = document.getElementById('Canvas1');
-            var context = canvas1.getContext('2d');
-            var x = 20;
-            var y = 0;
-            var width = 115;
-            var height = 115;
-            var imageObj = new Image();
+    <script>
+        var canvas1 = document.getElementById('Canvas1');
+        var context = canvas1.getContext('2d');
+        var x = 20;
+        var y = 0;
+        var width = 115;
+        var height = 115;
+        var imageObj = new Image();
 
-            imageObj.onload = function() {
+        imageObj.onload = function () {
             context.drawImage(imageObj, x, y, width, height);
-            };
-            imageObj.src = "webserve.png";
-            context.font="normal 40px Comic Sans MS"
-            context.fillStyle="cyan";
-            context.fillText("Services", 10,135)
+        };
+        imageObj.src = "webserve.png";
+        context.font = "normal 40px Comic Sans MS"
+        context.fillStyle = "cyan";
+        context.fillText("Services", 10, 135)
 
 
-            var canvas2 = document.getElementById('Canvas2');
-            var context2 = canvas2.getContext('2d');
-            var x2 = 20;
-            var y2 = 0;
-            var width2 = 115;
-            var height2 = 115;
-            var imageObj2 = new Image();
+        var canvas2 = document.getElementById('Canvas2');
+        var context2 = canvas2.getContext('2d');
+        var x2 = 20;
+        var y2 = 0;
+        var width2 = 115;
+        var height2 = 115;
+        var imageObj2 = new Image();
 
-            imageObj2.onload = function() {
+        imageObj2.onload = function () {
             context2.drawImage(imageObj2, x2, y2, width2, height2);
-            };
-            imageObj2.src = "contact.png";
-            context2.font="normal 40px Comic Sans MS"
-            context2.fillStyle="cyan";
-            context2.fillText("Contact", 10,135)
+        };
+        imageObj2.src = "contact.png";
+        context2.font = "normal 40px Comic Sans MS"
+        context2.fillStyle = "cyan";
+        context2.fillText("Contact", 10, 135)
 
-            var canvas3 = document.getElementById('Canvas3');
-            var context3 = canvas3.getContext('2d');
-            var x3 = 20;
-            var y3 = 0;
-            var width3 = 115;
-            var height3 = 115;
-            var imageObj3 = new Image();
+        var canvas3 = document.getElementById('Canvas3');
+        var context3 = canvas3.getContext('2d');
+        var x3 = 20;
+        var y3 = 0;
+        var width3 = 115;
+        var height3 = 115;
+        var imageObj3 = new Image();
 
-            imageObj3.onload = function() {
+        imageObj3.onload = function () {
             context3.drawImage(imageObj3, x3, y3, width3, height3);
-            };
-            imageObj3.src = "goal.png";
-            context3.font="normal 30px Comic Sans MS"
-            context3.fillStyle="cyan";
-            context3.fillText("Our Goal", 10,135)
+        };
+        imageObj3.src = "goal.png";
+        context3.font = "normal 30px Comic Sans MS"
+        context3.fillStyle = "cyan";
+        context3.fillText("Our Goal", 10, 135)
 
 
-            var canvas4 = document.getElementById('Canvas4');
-            var context4 = canvas4.getContext('2d');
-            var x4 = 20;
-            var y4 = 0;
-            var width4 = 115;
-            var height4 = 115;
-            var imageObj4 = new Image();
+        var canvas4 = document.getElementById('Canvas4');
+        var context4 = canvas4.getContext('2d');
+        var x4 = 20;
+        var y4 = 0;
+        var width4 = 115;
+        var height4 = 115;
+        var imageObj4 = new Image();
 
-            imageObj4.onload = function() {
+        imageObj4.onload = function () {
             context4.drawImage(imageObj4, x4, y4, width4, height4);
-            };
-            imageObj4.src = "about.png";
-            context4.font="normal 30px Comic Sans MS"
-            context4.fillStyle="cyan";
-            context4.fillText("About Us", 10,135)
-        </script>
-    </body>
+        };
+        imageObj4.src = "about.png";
+        context4.font = "normal 30px Comic Sans MS"
+        context4.fillStyle = "cyan";
+        context4.fillText("About Us", 10, 135)
+    </script>
+</body>
+
 </html>
